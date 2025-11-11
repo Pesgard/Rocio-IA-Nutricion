@@ -1,0 +1,90 @@
+# Entornos virtuales
+.venv/
+env/
+venv/
+ENV/
+
+# Archivos temporales de Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg
+*.egg-info/
+*.log
+*.sqlite3
+
+# Archivos de cache o build
+*.so
+*.dll
+*.bak
+*.swp
+*.swo
+
+# Archivos de pruebas o debug
+test_output.txt
+tmp/
+logs/
+debug.log
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# ============================
+# 🔐 Configuración y entorno
+# ============================
+
+# Variables de entorno (nunca subir credenciales)
+.env
+*.env
+
+# ============================
+# 📦 Dependencias y herramientas
+# ============================
+
+# Poetry
+poetry.lock.bak
+# (NO ignores poetry.lock — debe incluirse en el repo)
+
+# PyInstaller / Builds
+build/
+dist/
+*.spec
+
+# ============================
+# IDEs y configuración local
+# ============================
+
+.vscode/
+.idea/
+*.iml
+*.code-workspace
+
+# ============================
+# SWI-Prolog
+# ============================
+
+# Archivos temporales o generados por SWI-Prolog
+*.qlf
+*.tmp
+*.bak
+*.cache
+
+# ============================
+# Archivos de pruebas simuladas
+# ============================
+
+# Datos generados por sensores simulados
+sensors_data.json
+mock_data.json
+
+# ============================
+# Otros
+# ============================
+
+# Archivos de exportación o documentación generada
+*.pdf
+*.zip
+*.tar.gz

@@ -1,0 +1,35 @@
+# Entornos globales
+.env
+*.env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Entornos de Python (backend)
+backend/.venv/
+backend/env/
+backend/venv/
+backend/__pycache__/
+
+# Archivos de compilación C/C++ (firmware)
+firmware/build/
+firmware/.pio/
+firmware/.vscode/
+firmware/*.bin
+firmware/*.elf
+firmware/*.hex
+
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+tmp/
+
+# IDEs
+.vscode/
+.idea/
