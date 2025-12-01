@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+/* ============================================
+   🎨 NUTRIBOT - Custom Theme Variables
+   Aesthetic: Fresh, healthy, modern health-tech
+   ============================================ */
+
+@theme {
+  /* Primary - Vibrant Emerald Green (Health/Fresh) */
+  --color-primary-50: #ecfdf5;
+  --color-primary-100: #d1fae5;
+  --color-primary-200: #a7f3d0;
+  --color-primary-300: #6ee7b7;
+  --color-primary-400: #34d399;
+  --color-primary-500: #10b981;
+  --color-primary-600: #059669;
+  --color-primary-700: #047857;
+  --color-primary-800: #065f46;
+  --color-primary-900: #064e3b;
+
+  /* Accent - Warm Coral (Energy/Vitality) */
+  --color-accent-50: #fff7ed;
+  --color-accent-100: #ffedd5;
+  --color-accent-200: #fed7aa;
+  --color-accent-300: #fdba74;
+  --color-accent-400: #fb923c;
+  --color-accent-500: #f97316;
+  --color-accent-600: #ea580c;
+  --color-accent-700: #c2410c;
+
+  /* Surface colors - Soft neutrals */
+  --color-surface-50: #fafaf9;
+  --color-surface-100: #f5f5f4;
+  --color-surface-200: #e7e5e4;
+  --color-surface-300: #d6d3d1;
+  --color-surface-400: #a8a29e;
+  --color-surface-500: #78716c;
+  --color-surface-600: #57534e;
+  --color-surface-700: #44403c;
+  --color-surface-800: #292524;
+  --color-surface-900: #1c1917;
+
+  /* Semantic colors */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+
+  /* Typography */
+  --font-display: "Outfit", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  /* Spacing */
+  --spacing-chat: 1rem;
+
+  /* Border radius */
+  --radius-bubble: 1.25rem;
+  --radius-card: 1rem;
+  --radius-button: 0.75rem;
+
+  /* Shadows */
+  --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-elevated: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-glow: 0 0 20px rgb(16 185 129 / 0.3);
+}
+
+/* ============================================
+   🌐 Global Styles
+   ============================================ */
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: linear-gradient(135deg, var(--color-surface-50) 0%, var(--color-primary-50) 100%);
+    color: var(--color-surface-800);
+    min-height: 100vh;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
+}
+
+/* ============================================
+   🎯 Custom Utility Classes
+   ============================================ */
+
+@layer utilities {
+  .gradient-primary {
+    background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-600) 100%);
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, var(--color-accent-400) 0%, var(--color-accent-500) 100%);
+  }
+
+  .gradient-surface {
+    background: linear-gradient(180deg, var(--color-surface-50) 0%, var(--color-surface-100) 100%);
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .glass-dark {
+    background: rgba(28, 25, 23, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-accent-500) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .shadow-glow-primary {
+    box-shadow: 0 0 20px rgb(16 185 129 / 0.4);
+  }
+
+  .shadow-glow-accent {
+    box-shadow: 0 0 20px rgb(249 115 22 / 0.4);
+  }
+
+  /* Scrollbar styling */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: var(--color-surface-100);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: var(--color-surface-300);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: var(--color-surface-400);
+  }
+
+  /* Animation utilities */
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce-subtle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.3s ease-out forwards;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.2s ease-out forwards;
+  }
+}
+
+/* ============================================
+   📱 Component Styles
+   ============================================ */
+
+@layer components {
+  /* Chat bubble styles */
+  .chat-bubble {
+    max-width: 80%;
+    padding: 0.875rem 1.125rem;
+    border-radius: var(--radius-bubble);
+    line-height: 1.5;
+    word-wrap: break-word;
+  }
+
+  .chat-bubble-user {
+    background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-600) 100%);
+    color: white;
+    border-bottom-right-radius: 0.375rem;
+    margin-left: auto;
+  }
+
+  .chat-bubble-agent {
+    background: white;
+    color: var(--color-surface-800);
+    border: 1px solid var(--color-surface-200);
+    border-bottom-left-radius: 0.375rem;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Card component */
+  .card {
+    background: white;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--color-surface-200);
+  }
+
+  .card-elevated {
+    background: white;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-elevated);
+    border: 1px solid var(--color-surface-100);
+  }
+
+  /* Button styles */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    font-weight: 500;
+    border-radius: var(--radius-button);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 0.9375rem;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-600) 100%);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-secondary {
+    background: var(--color-surface-100);
+    color: var(--color-surface-700);
+    border: 1px solid var(--color-surface-200);
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-surface-200);
+    border-color: var(--color-surface-300);
+  }
+
+  .btn-accent {
+    background: linear-gradient(135deg, var(--color-accent-400) 0%, var(--color-accent-500) 100%);
+    color: white;
+  }
+
+  .btn-accent:hover {
+    background: linear-gradient(135deg, var(--color-accent-500) 0%, var(--color-accent-600) 100%);
+    box-shadow: 0 0 20px rgb(249 115 22 / 0.4);
+    transform: translateY(-1px);
+  }
+
+  /* Input styles */
+  .input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--color-surface-200);
+    border-radius: var(--radius-button);
+    font-size: 0.9375rem;
+    transition: all 0.2s ease;
+    background: white;
+  }
+
+  .input:focus {
+    outline: none;
+    border-color: var(--color-primary-400);
+    box-shadow: 0 0 0 3px rgb(16 185 129 / 0.1);
+  }
+
+  .input::placeholder {
+    color: var(--color-surface-400);
+  }
+
+  /* Stat card */
+  .stat-card {
+    background: white;
+    border-radius: var(--radius-card);
+    padding: 1.25rem;
+    border: 1px solid var(--color-surface-200);
+    transition: all 0.2s ease;
+  }
+
+  .stat-card:hover {
+    box-shadow: var(--shadow-elevated);
+    transform: translateY(-2px);
+  }
+
+  /* Recommendation card */
+  .recommendation-card {
+    background: linear-gradient(135deg, white 0%, var(--color-primary-50) 100%);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-primary-200);
+    padding: 1rem;
+    transition: all 0.2s ease;
+  }
+
+  .recommendation-card:hover {
+    box-shadow: var(--shadow-glow);
+    border-color: var(--color-primary-300);
+  }
+}
+

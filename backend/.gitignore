@@ -40,6 +40,12 @@ Thumbs.db
 .env
 *.env
 
+# Credenciales de Google Cloud / Dialogflow
+credentials.json
+*-credentials.json
+*credentials*.json
+service-account*.json
+
 # ============================
 # 📦 Dependencias y herramientas
 # ============================
